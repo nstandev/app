@@ -22,5 +22,5 @@ app.get('/api', (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Backend API listening on port ${port}`);
+    console.log(`Backend API listening on this port ${port}`);
 });
