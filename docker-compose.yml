@@ -1,7 +1,8 @@
 version: "3.8"
 services:
   frontend:
-    build: ./frontend
+    #build: ./frontend
+    image: nstandev/frontend-service:1.0.2
     ports:
       - "3000:3000"
     depends_on:
@@ -16,7 +17,7 @@ services:
 
   backend:
     # build: ./backend
-    image: nstandev/backend-service
+    image: nstandev/backend-service:1.0.2
     ports:
       - "3001:3001"
     depends_on:
@@ -32,24 +33,14 @@ services:
   db:
     image: mariadb:10.6
     environment:
-      MYSQL_ROOT_PASSWORD: password
+      MARIADB_ROOT_PASSWORD: yourpassword
       MYSQL_DATABASE: mydatabase
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      # MYSQL_USER: user
+      # MYSQL_PASSWORD: password
     volumes:
       - ./db:/docker-entrypoint-initdb.d
     healthcheck:
-      test:
-        [
-          "CMD",
-          "mysqladmin",
-          "ping",
-          "-h",
-          "localhost",
-          "-u",
-          "root",
-          "-p'password'",
-        ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-pyourpassword"]
       interval: 30s
       timeout: 10s
       retries: 3
