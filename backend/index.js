@@ -6,7 +6,7 @@ const port = 3001;
 
 // Create a connection to the database
 const connection = mysql.createConnection({
-  host: process.env.DB_HOST || 'mariadb-container',
+  host: process.env.DB_HOST || 'db',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || 'yourpassword',
   database: process.env.DB_NAME || 'mydatabase'
