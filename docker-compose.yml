@@ -39,7 +39,7 @@ services:
       MYSQL_DATABASE: mydatabase
       # MYSQL_USER: user
       # MYSQL_PASSWORD: password
-    command: --skip-grant-tables
+    # command: --skip-grant-tables
     volumes:
       - ./db:/docker-entrypoint-initdb.d
     healthcheck:
