@@ -20,6 +20,7 @@ services:
     image: nstandev/backend-service:1.0.2
     environment:
       DB_HOST: db
+      DB_USER: user
     ports:
       - "3001:3001"
     depends_on:

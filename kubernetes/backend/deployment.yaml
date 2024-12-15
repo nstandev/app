@@ -14,27 +14,32 @@ spec:
     spec:
       containers:
       - name: backend
-        image: backend-service:latest
-        imagePullPolicy: Never
+        image: backend-service:1.0.2
         ports:
         - containerPort: 3001
-        #   value: db
-        # - name: DB_USER
-        #   value: user
-        # - name: DB_PASSWORD
-        #   value: password
-        # - name: DB_NAME
-        #   value: mydatabase
 
         # get enviromment variables from a configmap and secret
-        envFrom:
-        - configMapRef:
-            name: backend-config
         env:
+        - name: DB_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_HOST
+        - name: DB_USER
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_USER
+        - name: DB_NAME
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: DB_NAME
         - name: DB_PASSWORD
           valueFrom:
             secretKeyRef:
-              name: backend-secrets
+              name: app-secrets
               key: DB_PASSWORD
+      
 
         
