@@ -1,4 +1,4 @@
-## Project 1: Dockerized Multi-Service Application
+## Project: Dockerized Multi-Service Application
 
 ### Description
 This project demonstrates a Dockerized application with a React frontend, Node.js backend, and a MySQL database.
