@@ -22,7 +22,7 @@ pipeline {
                 //         backendImage = docker.build("${BACKEND_IMAGE}:${DOCKER_TAG}")
                 //     }
                 // }
-                sh echo 'Built Backend Docker Image!'
+                echo 'Built Backend Docker Image!'
             }
         }
 
@@ -34,7 +34,7 @@ pipeline {
                 //     }
                 // }
 
-                sh echo 'Built Frontend Docker Image!'
+                echo 'Built Frontend Docker Image!'
             }
         }
 
@@ -46,7 +46,7 @@ pipeline {
                 //     }
                 // }
 
-                sh echo 'Pushed Backend Docker Image!'
+                echo 'Pushed Backend Docker Image!'
             }
         }
 
@@ -58,7 +58,7 @@ pipeline {
                 //     }
                 // }
 
-                sh echo 'Pushed Frontend Docker Image!'
+                echo 'Pushed Frontend Docker Image!'
             }
         }
     }
