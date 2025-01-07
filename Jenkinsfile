@@ -75,9 +75,9 @@ pipeline {
         }
         cleanup {
             echo 'Cleaning up Docker containers...'
-            sh '''
-            docker-compose down --rmi all --volumes
-            '''
+            // sh '''
+            // docker-compose down --rmi all --volumes
+            // '''
         }
     }
 }
