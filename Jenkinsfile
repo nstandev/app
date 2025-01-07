@@ -9,9 +9,15 @@ pipeline {
     }
 
     stages {
-        stage('Checkout Code') {
+        // stage('Checkout Code') {
+        //     steps {
+        //         checkout scm
+        //     }
+        // }
+
+        stage('Clone Repository') {
             steps {
-                checkout scm
+                git branch: 'main', url: 'https://github.com/nstandev/test-repo.git'
             }
         }
 
