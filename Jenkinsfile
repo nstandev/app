@@ -65,7 +65,7 @@ pipeline {
 
     post {
         success {
-            echo 'Backend and Frontend Docker images successfully built and pushed!'
+            echo 'Backend and Frontend Docker images successfully built and pushed!!'
         }
         failure {
             echo 'Failed to build or push Docker images!'
