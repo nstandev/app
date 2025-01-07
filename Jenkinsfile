@@ -16,20 +16,14 @@ pipeline {
             }
         }
 
-        // stage('Clone Repository') {
-        //     steps {
-        //         git branch: 'main', url: 'https://github.com/nstandev/app.git'
-        //     }
-        // }
-
         stage('Build Backend Docker Image') {
             steps {
-                // dir('backend') { // Navigate to backend folder
-                //     script {
-                //         backendImage = docker.build("${BACKEND_IMAGE}:${DOCKER_TAG}")
-                //     }
-                // }
                 echo 'Built Backend Docker Image!'
+                dir('backend') { // Navigate to backend folder
+                    script {
+                        backendImage = docker.build("${BACKEND_IMAGE}:${DOCKER_TAG}")
+                    }
+                }
             }
         }
 
