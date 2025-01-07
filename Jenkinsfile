@@ -61,6 +61,16 @@ pipeline {
                 echo 'Pushed Frontend Docker Image!!'
             }
         }
+
+        stage ('Deploy application'){
+            steps {
+                echo "Starting Deployment using Docker Compose"
+                sh '''
+                docker-compose down || true
+                docker-compose up -d
+                '''
+            }
+        }
     }
 
     post {
