@@ -17,7 +17,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git branch: 'main', url: 'https://github.com/nstandev/test-repo.git'
+                git branch: 'main', url: 'https://github.com/nstandev/app.git'
             }
         }
 
