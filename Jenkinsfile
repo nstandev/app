@@ -64,11 +64,20 @@ pipeline {
     }
 
     post {
+        always {
+            echo "Make sure you clean up"
+        }
         success {
             echo 'Backend and Frontend Docker images successfully built and pushed!!!'
         }
         failure {
             echo 'Failed to build or push Docker images!'
+        }
+        cleanup {
+            echo 'Cleaning up Docker containers...'
+            sh '''
+            docker-compose down --rmi all --volumes
+            '''
         }
     }
 }
