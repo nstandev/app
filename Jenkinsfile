@@ -18,23 +18,22 @@ pipeline {
 
         stage('Build Backend Docker Image') {
             steps {
-                echo 'Built Backend Docker Image!'
                 dir('backend') { // Navigate to backend folder
                     script {
                         backendImage = docker.build("${BACKEND_IMAGE}:${DOCKER_TAG}")
                     }
                 }
+                echo 'Built Backend Docker Image!'
             }
         }
 
         stage('Build Frontend Docker Image') {
             steps {
-                // dir('frontend') { // Navigate to frontend folder
-                //     script {
-                //         frontendImage = docker.build("${FRONTEND_IMAGE}:${DOCKER_TAG}")
-                //     }
-                // }
-
+                dir('frontend') { // Navigate to frontend folder
+                    script {
+                        frontendImage = docker.build("${FRONTEND_IMAGE}:${DOCKER_TAG}")
+                    }
+                }
                 echo 'Built Frontend Docker Image!'
             }
         }
