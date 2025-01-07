@@ -1,8 +1,7 @@
-version: "3.8"
 services:
   frontend:
     #build: ./frontend
-    image: nstandev/frontend-service:1.0.2
+    image: nstandev/frontend-service:${BUILD_ID}
     ports:
       - "3000:3000"
     depends_on:
@@ -13,11 +12,11 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-      start_period: 10s
+      start_period: 10s 
 
   backend:
     # build: ./backend
-    image: nstandev/backend-service:1.0.2
+    image: nstandev/backend-service:${BUILD_ID}
     environment:
       DB_HOST: db
       DB_USER: user
