@@ -52,11 +52,11 @@ pipeline {
 
         stage('Push Frontend Docker Image') {
             steps {
-                // withDockerRegistry(credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/') {
-                //     script {
-                //         frontendImage.push()
-                //     }
-                // }
+                withDockerRegistry(credentialsId: 'docker-hub-creds', url: 'https://index.docker.io/v1/') {
+                    script {
+                        frontendImage.push()
+                    }
+                }
 
                 echo 'Pushed Frontend Docker Image!!'
             }
