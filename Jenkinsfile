@@ -58,7 +58,7 @@ pipeline {
                 //     }
                 // }
 
-                echo 'Pushed Frontend Docker Image!'
+                echo 'Pushed Frontend Docker Image!!'
             }
         }
     }
