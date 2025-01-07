@@ -9,17 +9,18 @@ pipeline {
     }
 
     stages {
-        // stage('Checkout Code') {
-        //     steps {
-        //         checkout scm
-        //     }
-        // }
-
-        stage('Clone Repository') {
+        stage('Checkout Code') {
             steps {
-                git branch: 'main', url: 'https://github.com/nstandev/app.git'
+                echo 'now checking out code...!'
+                checkout scm
             }
         }
+
+        // stage('Clone Repository') {
+        //     steps {
+        //         git branch: 'main', url: 'https://github.com/nstandev/app.git'
+        //     }
+        // }
 
         stage('Build Backend Docker Image') {
             steps {
