@@ -40,11 +40,11 @@ pipeline {
 
         stage('Push Backend Docker Image') {
             steps {
-                // withDockerRegistry(credentialsId: 'docker-hub-credentials', url: 'https://index.docker.io/v1/') {
-                //     script {
-                //         backendImage.push()
-                //     }
-                // }
+                withDockerRegistry(credentialsId: 'docker-hub-creds', url: 'https://index.docker.io/v1/') {
+                    script {
+                        backendImage.push()
+                    }
+                }
 
                 echo 'Pushed Backend Docker Image!'
             }
