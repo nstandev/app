@@ -1,5 +1,9 @@
 const express = require('express');
 const mysql = require('mysql2');
+const client = require('prom-client');
+
+// Enable the default metrics collection
+client.collectDefaultMetrics();
 
 const app = express();
 const port = 3001;
@@ -21,6 +25,16 @@ app.get('/api', (req, res) => {
         res.send(results);
     });
     // res.send("ccccc")
+});
+
+// Expose metrics at the /metrics endpoint
+app.get('/metrics', async (req, res) => {
+    try {
+        res.set('Content-Type', client.register.contentType);
+        res.send(await client.register.metrics());
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
 });
 
 app.listen(port, () => {
